@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1= title
+
+  if errors.errors !== undefined 
+    each message in errors.errors   
+        p=message
+
+
+  form(method="post")
+    p
+        label Tytuł
+        input(type="text", name="title" value=body.title || "")
+    p
+        label Opis
+        textarea(name="description")=body.description || ""
+    p 
+        label Ścieżka
+        input(type="text", name="path" value=body.title || "")
+    p
+        
+        input(type="submit", value="Zapisz")
