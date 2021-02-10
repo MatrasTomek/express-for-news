@@ -3,8 +3,7 @@ const router = express.Router();
 const News = require("../models/news");
 const defaultSort = -1;
 
-/* GET home page. */
-router.get("/api", (req, res) => {
+router.get("/", (req, res) => {
   const search = req.query.search || "";
   let sort = req.query.sort || -1;
 
