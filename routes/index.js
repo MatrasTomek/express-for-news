@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 /*GET admin data*/
 router.get("/login", (req, res) => {
-  // Dodanie do bazy - opcjonalne
+  // Dodanie do bazy nowego modelu- opcjonalne
   // new Admin({ login: "...", password: "... }).save();
   Admin.find({}, (err, data) => {
     login = data[0].login;

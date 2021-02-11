@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const News = require("../models/news");
 
-/* GET home page. */
 router.get("/", (req, res) => {
   const search = req.query.search || "";
 

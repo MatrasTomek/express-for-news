@@ -3,6 +3,7 @@ const router = express.Router();
 const News = require("../models/news");
 const defaultSort = -1;
 
+/* API get all data */
 router.get("/", (req, res) => {
   const search = req.query.search || "";
   let sort = req.query.sort || -1;
@@ -13,14 +14,14 @@ router.get("/", (req, res) => {
 
   const findNews = News.find({ title: new RegExp(search.trim(), "i") })
     .sort({ date: sort })
-    .select("_id title description path");
+    .select("_id date title description path");
 
   findNews.exec((err, data) => {
     res.json(data);
   });
 });
 
-/* GET home page. */
+/* API get data by id */
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   const findNews = News.findById(id);

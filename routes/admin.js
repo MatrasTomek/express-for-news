@@ -11,7 +11,6 @@ router.all("*", (req, res, next) => {
   next();
 });
 
-/* GET home page. */
 router.get("/", (req, res) => {
   News.find({}, (err, data) => {
     res.render("admin/index", { title: "Admin", data });
